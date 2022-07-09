@@ -1,0 +1,78 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.derecha{
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    
+    @include m.tablet {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+    .dark-mode-boton{
+        width: 3rem;
+        margin: 0 2rem;
+        filter: invert(100%);
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+.barra{
+    display: flex;
+    flex-direction: column;
+    padding-top: 3rem;
+    align-items: center;
+
+    @include m.tablet {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.navegacion{
+
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: visibility .3s ease-in-out,
+                opacity .5s linear
+                height .5s linear;
+
+    @include m.tablet {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    a{
+        color: v.$blanco;
+        font-size: 1.8rem;
+        display: block;
+        text-align: center;
+    }
+}
+
+.mobile-menu{
+    @include m.tablet {
+        display: none;
+    }
+
+    img{
+        width: 5rem;
+    }
+
+    cursor: pointer;
+}
+
+.mostrar{
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+}
